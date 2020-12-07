@@ -42,5 +42,6 @@ const paths = require(modulePath + '/config/paths');
 module.exports = Object.assign({
   scriptVersion: modulePath,
   configOverrides: config_overrides,
-  customScriptsIndex: (custom_scripts ? cs_index : -1)
+  customScriptsIndex: (custom_scripts ? cs_index : -1),
+  isWebpackFactory: isWebpackFactory,
 }, paths);
