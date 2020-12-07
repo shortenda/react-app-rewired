@@ -28,6 +28,15 @@ const modulePath = path.join(
   '..'
 );
 
+// CRA 2.1.2 switched to using a webpack config factory, but we can't do that
+// comparison if using a custom scripts package, so for custom scripts assume
+// we're using a webpack config factory.
+// https://github.com/facebook/create-react-app/pull/5722
+// https://github.com/facebook/create-react-app/releases/tag/v2.1.2
+const isWebpackFactory = function(scriptPkg) {
+  return custom_scripts || semver.gte(scriptPkg && scriptPkg.version, '2.1.2');
+}
+
 const paths = require(modulePath + '/config/paths');
 
 module.exports = Object.assign({
